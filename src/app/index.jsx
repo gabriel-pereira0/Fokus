@@ -3,8 +3,23 @@ import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Image source={require('@/assets/Imagens/Imagem_foco.png')} />
+      <Image
+        style={styles.imagem}
+        resizeMode='contain'
+        source={require('@/assets/imagens/Imagem_foco.png')}
+      />
       <View style={styles.actions}>
+        <View style={styles.context}>
+          <Pressable style={styles.contextButtonActive}>
+            <Text style={styles.contextButtonText}>Foco</Text>
+          </Pressable>
+          <Pressable>
+            <Text style={styles.contextButtonText}>Pausa curta</Text>
+          </Pressable>
+          <Pressable>
+            <Text style={styles.contextButtonText}>Pausa Longa</Text>
+          </Pressable>
+        </View>
         <Text style={styles.timer}>25:00</Text>
         <Pressable style={styles.button}>
           <Text style={styles.buttonText}>Começar</Text>
@@ -28,6 +43,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#021123',
     gap: 40,
   },
+  imagem: {
+    width: '90%',
+  },
   actions: {
     padding: 24,
     backgroundColor: '#14448080',
@@ -36,6 +54,20 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#144480',
     gap: 32,
+  },
+  context: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 8,
+  },
+  contextButtonText: {
+    fontSize: 12.5,
+    color: '#fff',
+    padding: 8,
+  },
+  contextButtonActive: {
+    backgroundColor: '#144480',
+    borderRadius: 8,
   },
   timer: {
     textAlign: 'center',
