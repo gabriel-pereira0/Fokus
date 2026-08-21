@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Text, View, StyleSheet, Image, Pressable, useS } from 'react-native';
 import { FokusButton } from '../../components/FokusButton/FokusButton';
-import { ActionButton } from '../../components/ActionButton/ActionButton';
+import { ActionButton } from '../../components/ActionButton/ActionButton.jsx';
 import { Timer } from '../../components/Timer/Timer';
 
 const pomodoro = [
