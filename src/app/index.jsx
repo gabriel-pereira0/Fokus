@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { Text, View, StyleSheet, Image, Pressable, useS } from 'react-native';
+import { FokusButton } from '../../components/FokusButton/FokusButton';
+import { ActionButton } from '../../components/ActionButton/ActionButton';
+import { Timer } from '../../components/Timer/Timer';
 
 const pomodoro = [
   {
@@ -35,24 +38,16 @@ export default function Index() {
       <View style={styles.actions}>
         <View style={styles.context}>
           {pomodoro.map((p) => (
-            <Pressable
+            <ActionButton
               key={p.id}
-              style={timerType.id === p.id ? styles.contextButtonActive : null}
+              active={timerType.id === p.id}
               onPress={() => setTimerType(p)}
-            >
-              <Text style={styles.contextButtonText}>{p.display}</Text>
-            </Pressable>
+              display={p.display}
+            />
           ))}
         </View>
-        <Text style={styles.timer}>
-          {new Date(timerType.initialValue * 1000).toLocaleTimeString('pt-BR', {
-            minute: '2-digit',
-            second: '2-digit',
-          })}
-        </Text>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonText}>Começar</Text>
-        </Pressable>
+        <Timer totalSeconds={timerType.initialValue} />
+        <FokusButton />
       </View>
       <View style={styles.footer}>
         <Text style={styles.footerText}>
@@ -87,33 +82,7 @@ const styles = StyleSheet.create({
   context: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 8,
-  },
-  contextButtonText: {
-    fontSize: 12.5,
-    color: '#fff',
-    padding: 8,
-  },
-  contextButtonActive: {
-    backgroundColor: '#144480',
-    borderRadius: 8,
-  },
-  timer: {
-    textAlign: 'center',
-    fontSize: 54,
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  button: {
-    backgroundColor: '#B872FF',
-    borderRadius: 32,
-    padding: 8,
-  },
-  buttonText: {
-    textAlign: 'center',
-    color: '#021123',
-    fontSize: 18,
-    fontWeight: 'bold',
+    alignItems: 'center',
   },
   footer: {
     width: '80%',
