@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { Link, router } from 'expo-router';
+import { router } from 'expo-router';
 import { FokusButton } from '../../components/FokusButton/FokusButton';
 import FokusFooter from '../../components/Footer/FokusFooter';
 
@@ -22,7 +22,7 @@ export default function Index() {
         />
         <FokusButton
           tittle={'Quero iniciar!'}
-          onPress={() => router.push('/pomodoro')}
+          onPress={() => router.navigate('/pomodoro')}
         />
       </View>
       <FokusFooter />
