@@ -4,6 +4,7 @@ import { FokusButton } from '../../components/FokusButton/FokusButton';
 import { ActionButton } from '../../components/ActionButton/ActionButton';
 import { Timer } from '../../components/Timer/Timer';
 import { IconPause, IconPlay } from '../../components/Icons/Icons';
+import FokusFooter from '../../components/Footer/FokusFooter';
 
 const pomodoro = [
   {
@@ -93,12 +94,7 @@ export default function Pomodoro() {
           onPress={toggleTimer}
         />
       </View>
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          Projeto fictício e sem fins comerciais.{' '}
-        </Text>
-        <Text style={styles.footerText}>Desenvolvido por Alura.</Text>
-      </View>
+      <FokusFooter />
     </View>
   );
 }
