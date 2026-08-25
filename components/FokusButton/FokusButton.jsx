@@ -1,13 +1,15 @@
 import { Text, StyleSheet, Pressable } from 'react-native';
 
-export function FokusButton({ onPress, tittle, icon }) {
+const FokusButton = ({ onPress, icon, tittle }) => {
   return (
     <Pressable style={styles.button} onPress={onPress}>
       {icon}
       <Text style={styles.buttonText}>{tittle}</Text>
     </Pressable>
   );
-}
+};
+
+export default FokusButton;
 
 const styles = StyleSheet.create({
   button: {

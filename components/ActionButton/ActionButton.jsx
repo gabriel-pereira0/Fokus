@@ -1,6 +1,6 @@
 import { Pressable, Text, StyleSheet } from 'react-native';
 
-export function ActionButton({ active, onPress, display }) {
+const ActionButton = ({ active, onPress, display }) => {
   return (
     <Pressable
       style={active ? styles.contextButtonActive : null}
@@ -9,7 +9,9 @@ export function ActionButton({ active, onPress, display }) {
       <Text style={styles.contextButtonText}>{display}</Text>
     </Pressable>
   );
-}
+};
+
+export default ActionButton;
 
 const styles = StyleSheet.create({
   contextButtonText: {

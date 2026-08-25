@@ -7,6 +7,7 @@ export default function Layout() {
         headerStyle: {
           backgroundColor: '#021123',
         },
+        headerShadowVisible: false,
         headerTintColor: '#fff',
         drawerStyle: {
           backgroundColor: '#021123',
@@ -22,27 +23,27 @@ export default function Layout() {
           drawerLabel: 'Home',
           title: 'overview',
           headerShown: false,
+          drawerItemStyle: { display: 'none' },
         }}
       />
       <Drawer.Screen
         name='pomodoro'
         options={{
-          drawerLabel: 'User',
-          title: 'overview',
+          drawerLabel: 'Timer',
+          title: '',
         }}
       />
       <Drawer.Screen
-        name='tasks'
+        name='tasks/tasks'
         options={{
-          drawerLabel: 'Tasks',
-          title: 'Tasks',
+          drawerLabel: 'Lista de Tarefas',
+          title: '',
         }}
       />
       <Drawer.Screen
-        name='addTasks'
+        name='tasks/ddTasks'
         options={{
-          drawerLabel: 'addTasks',
-          title: 'addTasks',
+          drawerItemStyle: { display: 'none' },
         }}
       />
     </Drawer>

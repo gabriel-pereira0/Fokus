@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function FokusFooter() {
+const FokusFooter = () => {
   return (
     <View style={styles.footer}>
       <Text style={styles.footerText}>
@@ -9,7 +9,9 @@ export default function FokusFooter() {
       <Text style={styles.footerText}>Desenvolvido por Alura.</Text>
     </View>
   );
-}
+};
+
+export default FokusFooter;
 
 const styles = StyleSheet.create({
   footer: {

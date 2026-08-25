@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { Text, View, StyleSheet, Image, Pressable, useS } from 'react-native';
-import { FokusButton } from '../../components/FokusButton/FokusButton';
-import { ActionButton } from '../../components/ActionButton/ActionButton';
-import { Timer } from '../../components/Timer/Timer';
+import FokusButton from '../../components/FokusButton/FokusButton';
+import ActionButton from '../../components/ActionButton/ActionButton';
+import Timer from '../../components/Timer/Timer';
 import { IconPause, IconPlay } from '../../components/Icons/Icons';
 import FokusFooter from '../../components/Footer/FokusFooter';
 

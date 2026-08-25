@@ -1,10 +1,14 @@
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function Tasks() {
+const tasks = () => {
   return (
     <SafeAreaView>
       <Text>pagina para listar tarefas</Text>
     </SafeAreaView>
   );
-}
+};
+
+export default tasks;
+
+const styles = StyleSheet.create({});
