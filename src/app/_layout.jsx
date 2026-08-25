@@ -2,19 +2,47 @@ import { Drawer } from 'expo-router/drawer';
 
 export default function Layout() {
   return (
-    <Drawer>
+    <Drawer
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#021123',
+        },
+        headerTintColor: '#fff',
+        drawerStyle: {
+          backgroundColor: '#021123',
+        },
+        drawerLabelStyle: {
+          color: '#fff',
+        },
+      }}
+    >
       <Drawer.Screen
-        name='index' // This is the name of the page and must match the url from root
+        name='index'
         options={{
           drawerLabel: 'Home',
+          title: 'overview',
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name='pomodoro'
+        options={{
+          drawerLabel: 'User',
           title: 'overview',
         }}
       />
       <Drawer.Screen
-        name='pomodoro' // This is the name of the page and must match the url from root
+        name='tasks'
         options={{
-          drawerLabel: 'User',
-          title: 'overview',
+          drawerLabel: 'Tasks',
+          title: 'Tasks',
+        }}
+      />
+      <Drawer.Screen
+        name='addTasks'
+        options={{
+          drawerLabel: 'addTasks',
+          title: 'addTasks',
         }}
       />
     </Drawer>
