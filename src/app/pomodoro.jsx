@@ -89,7 +89,7 @@ export default function Pomodoro() {
         </View>
         <Timer totalSeconds={seconds} />
         <FokusButton
-          tittle={timerRunning ? 'Pausar' : 'Começar'}
+          title={timerRunning ? 'Pausar' : 'Começar'}
           icon={timerRunning ? <IconPause /> : <IconPlay />}
           onPress={toggleTimer}
         />

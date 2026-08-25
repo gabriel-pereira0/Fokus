@@ -11,7 +11,7 @@ export default function Index() {
         source={require('@/assets/Logo_e_Favicons/Logo.png')}
       />
       <View style={styles.inner}>
-        <Text style={styles.tittle}>
+        <Text style={styles.title}>
           Otimize sua {'\n'}produtividade,{'\n'}
           <Text style={styles.bold}>mergulhe no que{'\n'} importa</Text>
         </Text>
@@ -21,7 +21,7 @@ export default function Index() {
           source={require('@/assets/images/Imagem_tela_inicial.png')}
         />
         <FokusButton
-          tittle={'Quero iniciar!'}
+          title={'Quero iniciar!'}
           onPress={() => router.navigate('/pomodoro')}
         />
       </View>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   inner: {
     gap: 16,
   },
-  tittle: {
+  title: {
     color: '#fff',
     fontSize: 26,
     textAlign: 'center',

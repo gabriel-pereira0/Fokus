@@ -1,10 +1,10 @@
 import { Text, StyleSheet, Pressable } from 'react-native';
 
-const FokusButton = ({ onPress, icon, tittle }) => {
+const FokusButton = ({ onPress, icon, title }) => {
   return (
     <Pressable style={styles.button} onPress={onPress}>
       {icon}
-      <Text style={styles.buttonText}>{tittle}</Text>
+      <Text style={styles.buttonText}>{title}</Text>
     </Pressable>
   );
 };
