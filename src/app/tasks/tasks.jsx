@@ -7,19 +7,26 @@ import FokusFooter from '../../../components/Footer/FokusFooter';
 
 const Tasks = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.containerTasks}>
-        <Text style={styles.text}>Lista de Tarefas:</Text>
-        <View style={styles.tasks}>
-          <TaskItem completed text='estudar react' />
-          <TaskItem text='estudar typescript' />
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.containerTasks}>
+          <Text style={styles.text}>Lista de Tarefas:</Text>
+          <View style={styles.tasks}>
+            <TaskItem completed text='estudar react' />
+            <TaskItem text='estudar typescript' />
+          </View>
+        </View>
+        <View style={styles.buttonContainer}>
+          <FokusButton
+            title={'Adicionar nova tarefa'}
+            icon={<IconPlus outline />}
+            outline
+          />
         </View>
       </View>
-      <FokusButton
-        title={'Adicionar nova tarefa'}
-        icon={<IconPlus outline />}
-      />
-      <FokusFooter />
+      <View style={styles.footer}>
+        <FokusFooter />
+      </View>
     </SafeAreaView>
   );
 };
@@ -27,11 +34,12 @@ const Tasks = () => {
 export default Tasks;
 
 const styles = StyleSheet.create({
+  safeArea: { backgroundColor: '#021123', flex: 1 },
   container: {
     flex: 1,
     gap: 40,
-    backgroundColor: '#021123',
     alignItems: 'center',
+    paddingTop: 40,
   },
   containerTasks: { gap: 24, width: '90%' },
   text: {
@@ -41,5 +49,13 @@ const styles = StyleSheet.create({
   },
   tasks: {
     gap: 8,
+  },
+  buttonContainer: {
+    width: '90%',
+    alignItems: 'stretch',
+  },
+  footer: {
+    alignItems: 'center',
+    paddingVertical: 40,
   },
 });
