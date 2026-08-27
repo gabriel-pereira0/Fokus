@@ -1,4 +1,5 @@
 import { Text, StyleSheet, View } from 'react-native';
+import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TaskItem from '../../../components/TaskItem/taskItem';
 import FokusButton from '../../../components/FokusButton/FokusButton';
@@ -21,6 +22,7 @@ const Tasks = () => {
             title={'Adicionar nova tarefa'}
             icon={<IconPlus outline />}
             outline
+            onPress={() => router.navigate('/tasks/addTasks')}
           />
         </View>
       </View>

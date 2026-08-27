@@ -1,4 +1,6 @@
 import { Drawer } from 'expo-router/drawer';
+import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 export default function Layout() {
   return (
@@ -41,9 +43,21 @@ export default function Layout() {
         }}
       />
       <Drawer.Screen
-        name='tasks/ddTasks'
+        name='tasks/addTasks'
         options={{
           drawerItemStyle: { display: 'none' },
+          title: '',
+          headerLeft: () => {
+            return (
+              <Ionicons
+                name='arrow-back'
+                size={24}
+                color='#fff'
+                style={{ marginLeft: 16 }}
+                onPress={() => router.navigate('/tasks/tasks')}
+              />
+            );
+          },
         }}
       />
     </Drawer>
