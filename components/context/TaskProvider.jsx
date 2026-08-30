@@ -5,7 +5,8 @@ export const TaskContext = createContext();
 const TaskProvider = ({ children }) => {
   const [task, setTasks] = useState([]);
 
-  const addTask = (description) => {
+  const addTasks = (description) => {
+    console.log('tarefa vai ser adicionada');
     setTasks((oldState) => {
       return [...oldState, { description, id: oldState.length + 1 }];
     });
@@ -29,7 +30,7 @@ const TaskProvider = ({ children }) => {
   };
   return (
     <TaskContext.Provider
-      value={{ task, addTask, toggleTaskCompleted, deleteTask }}
+      value={{ task, addTasks, toggleTaskCompleted, deleteTask }}
     >
       {children}
     </TaskContext.Provider>
