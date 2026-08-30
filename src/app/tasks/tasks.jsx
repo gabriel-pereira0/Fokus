@@ -5,16 +5,25 @@ import TaskItem from '../../../components/TaskItem/taskItem';
 import FokusButton from '../../../components/FokusButton/FokusButton';
 import { IconPlus } from '../../../components/Icons/Icons';
 import FokusFooter from '../../../components/Footer/FokusFooter';
+import useTaskContext from '../../../components/context/useTaskContext';
 
 const Tasks = () => {
+  const { tasks } = useTaskContext();
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.containerTasks}>
           <Text style={styles.text}>Lista de Tarefas:</Text>
           <View style={styles.tasks}>
-            <TaskItem completed text='estudar react' />
-            <TaskItem text='estudar typescript' />
+            {tasks.map((t) => {
+              return (
+                <TaskItem
+                  completed={t.completed}
+                  text={t.description}
+                  key={t.id}
+                />
+              );
+            })}
           </View>
         </View>
         <View style={styles.buttonContainer}>

@@ -3,10 +3,9 @@ import { createContext, useState } from 'react';
 export const TaskContext = createContext();
 
 const TaskProvider = ({ children }) => {
-  const [task, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   const addTasks = (description) => {
-    console.log('tarefa vai ser adicionada');
     setTasks((oldState) => {
       return [...oldState, { description, id: oldState.length + 1 }];
     });
@@ -30,7 +29,7 @@ const TaskProvider = ({ children }) => {
   };
   return (
     <TaskContext.Provider
-      value={{ task, addTasks, toggleTaskCompleted, deleteTask }}
+      value={{ tasks, addTasks, toggleTaskCompleted, deleteTask }}
     >
       {children}
     </TaskContext.Provider>
