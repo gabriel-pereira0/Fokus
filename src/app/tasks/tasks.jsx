@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, FlatList } from 'react-native';
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TaskItem from '../../../components/TaskItem/taskItem';
@@ -13,30 +13,34 @@ const Tasks = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.containerTasks}>
-          <Text style={styles.text}>Lista de Tarefas:</Text>
           <View style={styles.tasks}>
-            {tasks.map((t) => {
-              return (
+            <FlatList
+              data={tasks}
+              renderItem={({ item }) => (
                 <TaskItem
-                  completed={t.completed}
-                  text={t.description}
-                  key={t.id}
+                  completed={item.completed}
+                  text={item.description}
+                  key={item.id}
                 />
-              );
-            })}
+              )}
+              keyExtractor={(item) => item.id}
+              ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
+              ListHeaderComponent={
+                <Text style={styles.text}>Lista de Tarefas:</Text>
+              }
+              ListFooterComponent={
+                <View style={styles.buttonContainer}>
+                  <FokusButton
+                    title={'Adicionar nova tarefa'}
+                    icon={<IconPlus outline />}
+                    outline
+                    onPress={() => router.navigate('/tasks/addTasks')}
+                  />
+                </View>
+              }
+            />
           </View>
         </View>
-        <View style={styles.buttonContainer}>
-          <FokusButton
-            title={'Adicionar nova tarefa'}
-            icon={<IconPlus outline />}
-            outline
-            onPress={() => router.navigate('/tasks/addTasks')}
-          />
-        </View>
-      </View>
-      <View style={styles.footer}>
-        <FokusFooter />
       </View>
     </SafeAreaView>
   );
@@ -57,16 +61,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 26,
     color: '#fff',
+    marginBottom: 16,
   },
   tasks: {
     gap: 8,
   },
   buttonContainer: {
-    width: '90%',
-    alignItems: 'stretch',
-  },
-  footer: {
     alignItems: 'center',
-    paddingVertical: 40,
+    marginTop: 16,
   },
 });
