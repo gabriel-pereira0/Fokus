@@ -15,7 +15,7 @@ const TaskProvider = ({ children }) => {
     setTasks((oldState) => {
       return oldState.map((t) => {
         if (t.id == id) {
-          t.complete = !t.completed;
+          return { ...t, completed: !t.completed };
         }
         return t;
       });
