@@ -8,7 +8,7 @@ import FokusFooter from '../../../components/Footer/FokusFooter';
 import useTaskContext from '../../../components/context/useTaskContext';
 
 const Tasks = () => {
-  const { tasks } = useTaskContext();
+  const { tasks, deleteTask } = useTaskContext();
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -21,6 +21,7 @@ const Tasks = () => {
                   completed={item.completed}
                   text={item.description}
                   key={item.id}
+                  onPressDelete={() => deleteTask(item.id)}
                 />
               )}
               keyExtractor={(item) => item.id}
