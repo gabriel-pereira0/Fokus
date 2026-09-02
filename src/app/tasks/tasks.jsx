@@ -23,6 +23,7 @@ const Tasks = () => {
                   completed={item.completed}
                   onPressDelete={() => deleteTask(item.id)}
                   onToggleComplete={() => toggleTaskCompleted(item.id)}
+                  onPressEdit={() => router.navigate(`/tasks/${item.id}`)}
                 />
               )}
               keyExtractor={(item) => item.id}

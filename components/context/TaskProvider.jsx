@@ -1,9 +1,42 @@
-import { createContext, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { createContext, useEffect, useState } from 'react';
 
 export const TaskContext = createContext();
 
 const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const TASK_STORAGE_KEY = 'fokusTasks';
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await AsyncStorage.getItem(TASK_STORAGE_KEY);
+        if (data) {
+          setTasks(JSON.parse(data));
+        }
+      } catch (error) {
+        console.log('Erro ao carregar tarefas:', error);
+      } finally {
+        setIsLoaded(true);
+      }
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const saveTasks = async (tasks) => {
+      try {
+        await AsyncStorage.setItem(TASK_STORAGE_KEY, JSON.stringify(tasks));
+      } catch (error) {
+        console.log('Erro ao salvar tarefas:', error);
+      }
+    };
+    if (isLoaded) {
+      saveTasks(tasks);
+    }
+  }, [tasks, isLoaded]);
 
   const addTasks = (description) => {
     setTasks((oldState) => {
