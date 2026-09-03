@@ -26,6 +26,12 @@ const Tasks = () => {
                   onPressEdit={() => router.navigate(`/tasks/${item.id}`)}
                 />
               )}
+              ListEmptyComponent={() => (
+                <Text style={styles.textEmpty}>
+                  Ainda não há tarefas na sua lista,{'\n'} que tal adicionar
+                  uma?
+                </Text>
+              )}
               keyExtractor={(item) => item.id}
               ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
               ListHeaderComponent={
@@ -65,6 +71,12 @@ const styles = StyleSheet.create({
     fontSize: 26,
     color: '#fff',
     marginBottom: 16,
+  },
+  textEmpty: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: '#98A0A8',
+    paddingVertical: 40,
   },
   tasks: {
     gap: 8,
