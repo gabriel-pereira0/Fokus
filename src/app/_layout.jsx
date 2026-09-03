@@ -62,6 +62,15 @@ export default function Layout() {
             },
           }}
         />
+        <Drawer.Screen
+          name='tasks/[id]'
+          options={{
+            drawerLabel: 'Edit Task',
+            title: 'Editar Tarefa',
+            headerShown: false,
+            drawerItemStyle: { display: 'none' },
+          }}
+        />
       </Drawer>
     </TaskProvider>
   );
