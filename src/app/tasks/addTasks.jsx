@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     height: 100,
+    textAlignVertical: 'top',
   },
   button: {
     flexDirection: 'row',
