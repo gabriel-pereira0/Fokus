@@ -25,9 +25,10 @@ const styles = StyleSheet.create({
     gap: 12,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
   },
   outlineButton: {
-    backgroundColor: 'trasparent',
+    backgroundColor: 'transparent',
     borderColor: '#B872FF',
     borderWidth: 2,
   },
