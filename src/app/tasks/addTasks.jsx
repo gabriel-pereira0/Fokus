@@ -11,6 +11,7 @@ import { router } from 'expo-router';
 import { IconSave } from '../../../components/Icons/Icons';
 import useTaskContext from '../../../components/context/useTaskContext';
 import { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function AddTasks() {
   const [description, setDescription] = useState();
@@ -26,28 +27,30 @@ export default function AddTasks() {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
-      <View style={styles.inner}>
-        <Text style={styles.text}>Adicionar uma tarefa:</Text>
-        <Text style={styles.label}>Em que você está trabalhando?</Text>
-        <TextInput
-          style={styles.input}
-          numberOfLines={10}
-          multiline={true}
-          value={description}
-          onChangeText={setDescription}
-        />
-        <View style={styles.actions}>
-          <Pressable style={styles.button} onPress={submitTask}>
-            <IconSave />
-            <Text> Salvar</Text>
-          </Pressable>
+    <SafeAreaView style={styles.container}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.containerInner}
+      >
+        <View style={styles.inner}>
+          <Text style={styles.text}>Adicionar uma tarefa:</Text>
+          <Text style={styles.label}>Em que você está trabalhando?</Text>
+          <TextInput
+            style={styles.input}
+            numberOfLines={10}
+            multiline={true}
+            value={description}
+            onChangeText={setDescription}
+          />
+          <View style={styles.actions}>
+            <Pressable style={styles.button} onPress={submitTask}>
+              <IconSave />
+              <Text> Salvar</Text>
+            </Pressable>
+          </View>
         </View>
-      </View>
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
@@ -55,6 +58,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#021123',
+  },
+  containerInner: {
     gap: 16,
     alignItems: 'center',
     justifyContent: 'center',

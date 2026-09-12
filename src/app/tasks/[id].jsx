@@ -4,6 +4,7 @@ import useTaskContext from '../../../components/context/useTaskContext';
 import { useEffect, useState } from 'react';
 import FokusButton from '../../../components/FokusButton/FokusButton';
 import { IconSave } from '../../../components/Icons/Icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const EditTask = () => {
   const { id } = useLocalSearchParams();
@@ -27,20 +28,22 @@ const EditTask = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Editar tarefa:</Text>
-      <TextInput
-        style={styles.input}
-        value={description}
-        onChangeText={setDescription}
-        multiline
-      />
-      <FokusButton
-        title='Salvar'
-        onPress={handleUpdateTask}
-        icon={<IconSave />}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.containerInner}>
+        <Text style={styles.title}>Editar tarefa:</Text>
+        <TextInput
+          style={styles.input}
+          value={description}
+          onChangeText={setDescription}
+          multiline
+        />
+        <FokusButton
+          title='Salvar'
+          onPress={handleUpdateTask}
+          icon={<IconSave />}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -50,6 +53,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#021123',
+  },
+  containerInner: {
     padding: 24,
     justifyContent: 'center',
     gap: 16,
